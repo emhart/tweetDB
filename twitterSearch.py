@@ -2,8 +2,8 @@ from twython import Twython
 #import numpy as np
 
 
-APP_KEY = '4h7uwdRNPeFQ8ojddWzZQ'
-APP_SECRET = '4AXOp4c8CM6T9wT1zWXydsA1yc2lWk8RvFgK7V85qU0'
+APP_KEY = 'bbvnwip2YpnLSU7S0xq6lvcHW'
+APP_SECRET = 'NAHmLQDtdpCPQOMdY3N0wjvOBOpW8cGv7j4bstsCggyQeoAh43'
 
 twitter = Twython(APP_KEY, APP_SECRET, oauth_version=2)
 
@@ -36,7 +36,6 @@ def twitter_search(term,mycount = 100):
     searches = []
     searches.append(twitter.search(q = term,count = mycount))
 
-
     if len(searches[0]['statuses']) < mycount:
         return(searches)
 
@@ -61,8 +60,16 @@ def dbTuple(twittersearch):
     dbtuples = []
     for i in twittersearch:
         for j in i['statuses']:
-            entry = (j["id_str"],j["user"]['name'].encode('ascii','ignore'),j['user']['screen_name'].encode('ascii','ignore'),j['text'],j["favorite_count"],
-            j['retweet_count'], j['geo'],j['in_reply_to_status_id_str'],j['in_reply_to_user_id'])
+            if j['geo']:
+                locOut = [str(x) for x in j['geo']['coordinates']]
+                location = ",".join(locOut)
+            else:
+                location = "None"
+            entry = (j["id_str"],j['created_at'],j["user"]['name'].encode('ascii','ignore'),j['user']['screen_name'].encode('ascii','ignore'),j['text'],j["favorite_count"],
+            j['retweet_count'], location ,j['in_reply_to_status_id_str'],j['in_reply_to_user_id'])
 
-        dbtuples.append(entry)
+            dbtuples.append(entry)
+
     return(dbtuples)
+
+

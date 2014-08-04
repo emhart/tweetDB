@@ -6,7 +6,7 @@ c = conn.cursor()
 
 # create table
 c.execute('''CREATE TABLE tweets
-             (id TEXT, user_name TEXT,screen_name TEXT, tweet_text TEXT,
+             (id TEXT, created_at TEXT ,user_name TEXT,screen_name TEXT, tweet_text TEXT,
               favorites INT, retweets INT, location TEXT, in_reply_to_tweet_id TEXT, in_reply_to_user_id TEXT)''')
 
 # save (commit) the changes
