@@ -1,6 +1,6 @@
 ## `TweetDB`
 
-This is a quasi user friendly method of archiving tweets using the twitter search API.It's a set of python scripts that you can easily use to create an sqlite3 database of tweets via a cronjob. This is useful because you can't get back old tweets without some $$$.  Therefore the easiest alternative is to archive them in real time. What if you don't want to program it all yourself? Well `TweetDB` is here to help.
+A quasi user friendly method of archiving tweets using the twitter search API.It's a set of python scripts that you can easily use to create an sqlite3 database of tweets via a cronjob. This is useful because you can't get back old tweets without some $$$.  Therefore the easiest alternative is to archive them in real time. What if you don't want to program it all yourself? Well `TweetDB` is here to help.
 
 ### Requirements
 
@@ -9,6 +9,12 @@ This is a quasi user friendly method of archiving tweets using the twitter searc
   * [Twitter API access using OAuth2](http://themebeans.com/how-to-create-access-tokens-for-twitter-api-1-1/)
 
 ### Getting started
+
+Start by cloning the repo to your local machine.
+
+```bash
+git clone https://github.com/emhart/tweetDB.git
+```
 
 First to access Twitter you'll need to get your App Key and App Secret. To keep these protected I store them in a separate text file.  It's called credentials.txt.  You'll first have to edit that file.
 
