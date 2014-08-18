@@ -1,9 +1,15 @@
 from twython import Twython
 #import numpy as np
 
+f = "credentials.txt"
+auth = {}
+with open(f) as file:
+    for line in file:
+        tmp = line.split(":")
+        auth[tmp[0]] = tmp[1].strip()
 
-APP_KEY = 'bbvnwip2YpnLSU7S0xq6lvcHW'
-APP_SECRET = 'NAHmLQDtdpCPQOMdY3N0wjvOBOpW8cGv7j4bstsCggyQeoAh43'
+APP_KEY = auth["key"]
+APP_SECRET = auth["secret"]
 
 twitter = Twython(APP_KEY, APP_SECRET, oauth_version=2)
 
@@ -71,5 +77,3 @@ def dbTuple(twittersearch):
             dbtuples.append(entry)
 
     return(dbtuples)
-
-
