@@ -13,7 +13,7 @@ if not os.path.isfile(dbname):
   # create table
   c.execute('''CREATE TABLE tweets
                (id TEXT, created_at TEXT ,user_name TEXT,screen_name TEXT, tweet_text TEXT,
-                favorites INT, retweets INT, location TEXT, in_reply_to_tweet_id TEXT, in_reply_to_user_id TEXT)''')
+                favorites INT, retweets INT, location TEXT, expanded_url TEXT, in_reply_to_tweet_id TEXT, in_reply_to_user_id TEXT)''')
 
   # save (commit) the changes
   conn.commit()

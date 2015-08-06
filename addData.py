@@ -31,7 +31,7 @@ for entry in toWriteCopy:
 
 print("Adding " + str(len(toWrite)) + " new records to your database")
 
-cur.executemany('INSERT INTO tweets VALUES (?,?,?,?,?,?,?,?,?,?)', toWrite)
+cur.executemany('INSERT INTO tweets VALUES (?,?,?,?,?,?,?,?,?,?,?)', toWrite)
 
     # save changes
 conn.commit()
